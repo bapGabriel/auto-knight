@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.alert-success{
+    background-color: #A7F3D0;
+    border: 1px solid #6EE7B7;
+}
+
+.alert-info{
+    background-color: #fef08a;
+    border: 1px solid #fde047;
+}
+
+.alert-failure{
+    background-color: #FECACA;
+    border: 1px solid #FCA5A5;
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+      background-color: #FECACA
+    }
+  
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+      background-color: #FECACA;
+
+    }
+  
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+      background-color: #FCA5A5;
+
+    }
+  
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+      background-color: #FCA5A5;
+
+    }
+  }
+
+.animation-bg-red {
+animation: animation-bg-red 1.5s;
+}
+  
+@keyframes animation-bg-red {
+10%,
+90% {
+    background-color: #FECACA
+}
+
+20%,
+80% {
+    background-color: #FECACA;
+
+}
+
+30%,
+50%,
+70% {
+    background-color: #FCA5A5;
+
+}
+
+40%,
+60% {
+    background-color: #FCA5A5;
+
+}
+}

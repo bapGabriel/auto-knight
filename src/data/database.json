@@ -1,0 +1,151 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "username": "Admin",
+      "password": "password",
+      "displayName": "Administrador",
+      "saveGame": ""
+    },
+    {
+      "id": "1",
+      "username": "Usuario",
+      "password": "123",
+      "displayName": "Usuário",
+      "saveGame": ""
+    },
+    {
+      "id": "9d59",
+      "username": "AWD",
+      "displayName": "asd",
+      "password": "awfafw"
+    },
+    {
+      "id": "735d",
+      "username": "Brbrbrkin",
+      "displayName": "Berkin",
+      "password": "2013",
+      "saveGame": ""
+    }
+  ],
+  "entities": [
+    {
+      "allies": [
+        {
+          "id": 0,
+          "name": "autoknight",
+          "displayName": "Autocavaleiro",
+          "level": 1,
+          "healthPoints": 100,
+          "attack": 10,
+          "defense": 10,
+          "agility": 10,
+          "equipment": [
+            {
+              "weapon": 1,
+              "armor": 1,
+              "ring": 1
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "autosquire",
+          "displayName": "Autoescudeiro",
+          "level": 1,
+          "healthPoints": 80,
+          "attack": 8,
+          "defense": 8,
+          "agility": 8,
+          "equipment": [
+            {
+              "weapon": 1,
+              "armor": 0,
+              "ring": 0
+            }
+          ]
+        }
+      ],
+      "enemies": [
+        {
+          "id": 0,
+          "name": "slime",
+          "displayName": "Gosma",
+          "level": 1,
+          "healthPoints": 20,
+          "attack": 2,
+          "defense": 4,
+          "agility": 3,
+          "equipment": [
+            {
+              "weapon": 0,
+              "armor": 0,
+              "ring": 0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "skeleton",
+          "displayName": "Esqueleto",
+          "level": 2,
+          "healthPoints": 30,
+          "attack": 4,
+          "defense": 6,
+          "agility": 6,
+          "equipment": [
+            {
+              "weapon": 1,
+              "armor": 0,
+              "ring": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "equipment": [
+        {
+          "weapon": [
+            {
+              "id": 0,
+              "name": "Desarmado",
+              "attack": 0
+            },
+            {
+              "id": 1,
+              "name": "Espada comum",
+              "attack": 1
+            }
+          ],
+          "armor": [
+            {
+              "id": 0,
+              "name": "Nada",
+              "defense": 0
+            },
+            {
+              "id": 1,
+              "name": "Peitoral comum",
+              "defense": 1
+            }
+          ],
+          "ring": [
+            {
+              "id": 0,
+              "name": "Nada",
+              "agility": 0
+            },
+            {
+              "id": 1,
+              "name": "Anel comum",
+              "agility": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
