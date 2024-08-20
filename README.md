@@ -1,35 +1,22 @@
-# auto-knight
+# Auto Knight
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto de jogo autobattler simples, visando aprender Vue e ferramentas adjacentes, além de princípios de segurança em sistemas de login.
 
-## Recommended IDE Setup
+## Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+### Instalar pacotes com npm
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Iniciar servidor de desenvolvimento
 
 ```sh
 npm run dev
 ```
 
-### Montar REST API para mockagem de dados
+### Iniciar servidor de mockagem da API
 
 ```sh
 npm run server
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```

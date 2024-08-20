@@ -30,7 +30,8 @@ export const useUserStore = defineStore({
 				.finally(() => {
 					axios.post("/api/users/", user)
 						.then(response => {
-							console.log("Registrado com sucesso?");
+							const alertStore = useAlertStore();
+							alertStore.success("Registrado com sucesso! Faça login usandos suas credenciais.")
 							router.push('/');
 						})
 						.catch(error => {

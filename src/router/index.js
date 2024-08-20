@@ -14,6 +14,10 @@ export const router = createRouter({
       component: HomeView
     },
     {
+      path: '/sair',
+      component: HomeView
+    },
+    {
       path: '/registrar',
       component: RegisterView
     },

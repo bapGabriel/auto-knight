@@ -1,6 +1,5 @@
 <script setup>
-import EnemyCard from "./EnemyCard.vue";
-import PlayerCard from "./PlayerCard.vue";
+import { EnemyCard, PlayerCard } from "@/components";
 
 const props = defineProps({
     
@@ -9,7 +8,7 @@ const props = defineProps({
 
 </script>
 <template>
-<div class="bg-background-600 p-1 grid grid-cols-3 gap-2 place-content-center place-items-center">
+<div class="bg-primary p-4 flex flex-row gap-2 justify-around flex-wrap items-center min-h-96">
     <slot></slot>
 </div>
 </template>

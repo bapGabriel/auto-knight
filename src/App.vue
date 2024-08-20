@@ -5,9 +5,9 @@ import Alert from "@/components/Alert.vue";
 </script>
 
 <template>
-  <Navbar />
-  <Alert />
-  <div class="mx-2 my-2 px-3 py-4 bg-primary-900">
+  <Navbar class="mb-8" />
+  <Alert class="mx-auto max-w-7xl"/>
+  <div class="mx-auto max-w-7xl my-2 bg-primary">
     <RouterView />
   </div>
 </template>

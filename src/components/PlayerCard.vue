@@ -5,18 +5,20 @@ import EntityCard from './EntityCard.vue';
 const playerStore = usePlayerStore();
 
 const props = defineProps({
-    id: Number
+    cardId: Number
 })
 
 </script>
 <template>
     <EntityCard
-        :displayName="playerStore.party[id].displayName"
-        :level="playerStore.party[id].level"
-        :healthPoints="playerStore.party[id].healthPoints"
-        :maxHealthPoints="playerStore.party[id].maxHealthPoints"
-        :attack="playerStore.party[id].attack"
-        :defense="playerStore.party[id].defense"
-        :experiencePoints="playerStore.party[id].experiencePoints"
-        :visualEffect="playerStore.party[id].visualEffect" />
+        type="ally"
+        :displayName="playerStore.party[cardId].displayName"
+        :level="playerStore.party[cardId].level"
+        :healthPoints="playerStore.party[cardId].healthPoints"
+        :maxHealthPoints="playerStore.party[cardId].maxHealthPoints"
+        :attack="playerStore.getAttack(playerStore.party[cardId])"
+        :defense="playerStore.getDefense(playerStore.party[cardId])"
+        :experiencePoints="playerStore.party[cardId].experiencePoints"
+        :imgSource="playerStore.party[cardId].img || '/src/assets/img/knight.svg'"
+        :visualEffect="playerStore.party[cardId].visualEffect" />
 </template>

@@ -5,17 +5,19 @@ import EntityCard from './EntityCard.vue';
 const entityStore = useEntityStore();
 
 const props = defineProps({
-    id: Number
+    cardId: Number
 })
 
 </script>
 <template>
     <EntityCard
-        :displayName="entityStore.entities[id].displayName"
-        :level="entityStore.entities[id].id"
-        :healthPoints="entityStore.entities[id].healthPoints"
-        :maxHealthPoints="entityStore.entities[id].maxHealthPoints"
-        :attack="entityStore.entities[id].attack"
-        :defense="entityStore.entities[id].defense"
-        :visualEffect="entityStore.entities[id].visualEffect" />
+        type="enemy"
+        :displayName="entityStore.entities[cardId].displayName"
+        :level="entityStore.entities[cardId].level"
+        :healthPoints="entityStore.entities[cardId].healthPoints"
+        :maxHealthPoints="entityStore.entities[cardId].maxHealthPoints"
+        :attack="entityStore.getAttack(entityStore.entities[cardId])"
+        :defense="entityStore.getDefense(entityStore.entities[cardId])"
+        :imgSource="entityStore.entities[cardId].img || '/src/assets/img/skull.svg'"
+        :visualEffect="entityStore.entities[cardId].visualEffect" />
 </template>

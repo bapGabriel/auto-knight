@@ -3,6 +3,7 @@ import { Form, Field} from "vee-validate";
 import * as Yup from "yup";
 
 import { useAlertStore, useUserStore } from '@/store';
+import { ManagementButton } from "@/components";
 
 const schema = Yup.object().shape({
     username: Yup.string().required("Informe o usuário!"),
@@ -17,7 +18,40 @@ async function onSubmit(values) {
 </script>
 
 <template>
-    <div class="flex min-h-md flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="flex min-h-md flex-col justify-center px-6 py-4 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h3 class="text-center text-2xl font-bold leading-9 tracking-tight"> Registrar </h3>
+            <div class="border-b-2 border-secondary h-1"></div>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }" class="space-y-6">
+                <div>
+                    <label for="username" :class="{ 'text-accent': errors.username }" class="block text-sm font-medium leading-6">Usuário: </label>
+                    <Field id="username" class="bg-background block mt-2 w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-secondary focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6" name="username" type="text" />
+                    <div class="text-accent">{{ errors.username }}</div>
+                </div>
+                <div>
+                    <label for="username" :class="{ 'text-accent': errors.displayName }" class="block text-sm font-medium leading-6">Nome de exibição: </label>
+                    <Field id="displayName" class="bg-background block mt-2 w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-secondary focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6" name="displayName" type="text" />
+                    <div class="text-accent">{{ errors.displayName }}</div>
+                </div>
+                <div>
+                    <label for="password" :class="{ 'text-accent': errors.password }" class="block text-sm font-medium leading-6">Senha: </label>
+                    <Field id="password" class="bg-background block mt-2 w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-secondary focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6" name="password" type="password" />
+                    <div class="text-accent">{{ errors.password }}</div>
+                </div>
+                <div>
+                    <ManagementButton :disabled="isSubmitting" class="w-full">
+                        <span v-if="isSubmitting" class="animate-spin pi pi-spinner"></span>
+                        <span v-else>Registrar</span>
+                    </ManagementButton>
+                </div>
+            </Form>
+        </div>
+    </div>
+    
+    <!-- <div class="flex min-h-md flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h3 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"> Registrar </h3>
         </div>
@@ -50,5 +84,5 @@ async function onSubmit(values) {
                 </div>
             </Form>
         </div>
-    </div>
+    </div> -->
 </template>

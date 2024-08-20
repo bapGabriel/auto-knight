@@ -15,17 +15,17 @@
       "saveGame": ""
     },
     {
-      "id": "9d59",
-      "username": "AWD",
-      "displayName": "asd",
-      "password": "awfafw"
+      "id": "8b1a",
+      "username": "Teste",
+      "displayName": "Teste Johnson",
+      "password": "123",
+      "saveGame": ""
     },
     {
-      "id": "735d",
-      "username": "Brbrbrkin",
-      "displayName": "Berkin",
-      "password": "2013",
-      "saveGame": ""
+      "id": "8e74",
+      "username": "Teste",
+      "displayName": "Teste Johnson",
+      "password": "123"
     }
   ],
   "entities": [
@@ -93,6 +93,23 @@
           "attack": 4,
           "defense": 6,
           "agility": 6,
+          "equipment": [
+            {
+              "weapon": 1,
+              "armor": 0,
+              "ring": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "rat",
+          "displayName": "Rato Gigante",
+          "level": 3,
+          "healthPoints": 30,
+          "attack": 8,
+          "defense": 9,
+          "agility": 9,
           "equipment": [
             {
               "weapon": 1,

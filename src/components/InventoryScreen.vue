@@ -2,9 +2,8 @@
 import { ManagementBody } from '@/components';
 
 </script>
-
 <template>
-    <ManagementBody title="Equipamento">
-        
+    <ManagementBody title="Inventário">
+
     </ManagementBody>
 </template>

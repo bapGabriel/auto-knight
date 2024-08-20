@@ -8,7 +8,7 @@ export const usePlayerStore = defineStore({
             {
                 id: 0,
                 displayName: "Autocavaleiro",
-                level: 5,
+                level: 1,
                 experiencePoints: 0,
                 healthPoints: 100,
                 maxHealthPoints: 100,
@@ -24,7 +24,7 @@ export const usePlayerStore = defineStore({
             {
                 id: 1,
                 displayName: "Autocavaleiro Clone",
-                level: 5,
+                level: 1,
                 experiencePoints: 0,
                 healthPoints: 100,
                 maxHealthPoints: 100,
@@ -42,6 +42,7 @@ export const usePlayerStore = defineStore({
             weapon: [],
             armor: [],
             ring: [],
+            potion: 0,
             gold: 0
         },
         wins: 0
@@ -57,22 +58,41 @@ export const usePlayerStore = defineStore({
         size(state){
             return state.party.length;
         },
+        getAttack(state){
+            return (combatant) => {
+                let base = state.party.find((member) => member === combatant).attack;
+                let levelBonus = Math.floor((combatant.level**2) * 0.5);
+                return base + levelBonus;
+            }
+        },
         damage(state){
             return (combatant) => {
-                let init = state.party.find((member) => member === combatant).attack;
-                let randomFluctuation = init * 0.2;
-                let levelBonus = Math.floor((combatant.level**2) * 0.5);
-                let final = (init + levelBonus) + getRandomInt(randomFluctuation * -1, randomFluctuation);
+                let base = this.getAttack(combatant);
+                let randomFluctuation = base * 0.2;
+                let final = base + getRandomInt(randomFluctuation * -1, randomFluctuation);
                 return final;
+            }
+        },
+        getDefense(state){
+            return (combatant) => {
+                let base = state.party.find((member) => member === combatant).defense;
+                let levelBonus = Math.floor((combatant.level**2) * 0.5);
+                return base + levelBonus;
             }
         },
         block(state){
             return (combatant) => {
-                let init = state.party.find((member) => member === combatant).defense;
-                let randomFluctuation = init * 0.2;
-                let levelBonus = Math.floor((combatant.level**2) * 0.5);
-                let final = (init + levelBonus) + getRandomInt(randomFluctuation * -1, randomFluctuation);
+                let base = this.getDefense(combatant);
+                let randomFluctuation = base * 0.2;
+                let final = base + getRandomInt(randomFluctuation * -1, randomFluctuation);
                 return final;
+            }
+        },
+        getAgility(state){
+            return (combatant) => {
+                let base = state.party.find((member) => member === combatant).agility;
+                let levelBonus = Math.floor((combatant.level**2) * 0.5);
+                return base + levelBonus;
             }
         },
         threatCredits(state){
@@ -101,7 +121,10 @@ export const usePlayerStore = defineStore({
                 let randomFluctuation = threat * 0.2;
                 element.experiencePoints += threat + getRandomInt(randomFluctuation * -1, randomFluctuation);
                 if(element.experiencePoints > this.levelThreshold(element)){
+                    element.experiencePoints -= this.levelThreshold(element);
                     element.level++;
+                    element.maxHealthPoints += 10*element.level; 
+                    element.healthPoints = element.maxHealthPoints;
                 }
             });
 
@@ -109,6 +132,10 @@ export const usePlayerStore = defineStore({
 
         async handleLoot(threat){
 
+        },
+
+        async kill(entity){
+            this.party.splice(this.party.findIndex((element) => element === entity), 1);
         }
 
     }
